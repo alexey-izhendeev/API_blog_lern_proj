@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'rest_framework',
+    'corsheaders',  # django-cors-headers
     'ckeditor',
     'ckeditor_uploader',
     'taggit',
@@ -54,12 +55,19 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # django-cors-headers
+    'django.middleware.common.CommonMiddleware',  # django-cors-headers
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+'''CORS_ALLOORWED_ORIGINS = [  # django-cors-headers
+    "http://localhost:3000",
+]'''
+
 
 # JWT token
 LOGIN_URL = 'api/v1/signin'
